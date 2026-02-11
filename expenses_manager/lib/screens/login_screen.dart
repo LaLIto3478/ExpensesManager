@@ -8,32 +8,83 @@ class LoginScreen extends StatelessWidget{
     final theme = Theme.of(context);
 
     return Scaffold(
-      body: Container(
-        // Tamaño
-        width: 250,
-        height: 600,
+        body: SingleChildScrollView(
+            child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Card(
+                    elevation: 9,
 
-        // Decoración
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                    ),
+                    margin: const EdgeInsets.all(20),
 
-        decoration: BoxDecoration(
-            color: Colors.yellow
-        ),
-        // margen
-        margin: EdgeInsets.all(15),
+                    child: Padding(
+                        padding: const EdgeInsets.all(20),
 
-        // padding
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                        child: Column(
+                            children: [
+                            const FlutterLogo(
+                            size: 150,
+                          ),
 
-        // Alineación
-        alignment: Alignment.center,
+                          Text(
+                            "Money Manager",
+                            style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.white
+                            ),
+                          ),
 
-        child: ElevatedButton(
-            onPressed: (){
-              Navigator.pushNamed(context, '/home_screen');
-            },
-            child: Text("Hola")
-        ),
-      )
+                          const SizedBox(height: 30),
+
+                          TextField(
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: "Ingresa tu Correo Electrónico",
+                              prefixIcon: Icon(Icons.mail)
+                            ),
+                          ),
+
+                          // WIDGET QUE SIRVE SOLO PARA SEPARAR
+                          const SizedBox(height: 15),
+
+                          TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              labelText: "Ingresa tu Contraseña",
+                              prefixIcon: Icon(Icons.lock)
+                            ),
+                          ),
+
+                          const SizedBox(height: 30),
+
+                          ElevatedButton(
+                              onPressed: (){},
+                              child: Text(
+                                "Ingresar",
+                              )
+                          ),
+
+                          ElevatedButton(
+                              onPressed: (){},
+                              child: Text("Hola")
+                          ),
+                          // Widget para espacear
+                          const SizedBox(height: 200),
+
+                          // Botón de Registro
+                          OutlinedButton(
+                              onPressed: (){print("Botón para ir la sign in page");},
+
+                              child: Text("¿No tienes cuenta? Regístrate aquí.")
+                          )
+                        ]
+                      )
+                    )
+                )
+            )
+        )
     );
   }
 }
